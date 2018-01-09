@@ -6,8 +6,8 @@ services:
         class: Bigfoot\Bundle\ContextBundle\Service\ContextService
         arguments:
             - '@bigfoot_context.chain.loader'
-            - %bigfoot_context.contexts%
-            - %bigfoot_context.entities%
+            - '%bigfoot_context.contexts%'
+            - '%bigfoot_context.entities%'
             - '@kernel'
             - '@request_stack'
 
@@ -16,7 +16,7 @@ services:
         class: Bigfoot\Bundle\ContextBundle\Manager\ContextManager
         arguments:
             - '@doctrine.orm.entity_manager'
-            - %bigfoot_context.entities%
+            - '%bigfoot_context.entities%'
 
     # Context Repository
     bigfoot_context.repository.context:
@@ -106,7 +106,7 @@ services:
 
     # BackOffice Language Loader
     bigfoot_context.language_back.loader:
-        class: %bigfoot_context.language_back.loader.class%
+        class: '%bigfoot_context.language_back.loader.class%'
         parent: bigfoot_context.loader.abstract
         tags:
             - { name: bigfoot_context.loader }
